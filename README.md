@@ -11,7 +11,7 @@ The infrastructure deploys:
 - **EC2 instances** in each region running a demo application
 - **VPC peering** connections creating a full mesh topology between all regions
 - **Security groups** configured for cross-region communication
-- **TLS certificates** for secure connections
+- **TLS certificates** for passwordless ssh between instances
 
 ### Network Topology
 
@@ -34,6 +34,7 @@ All three regions are fully peered with bi-directional routing and security grou
 
 1. **Clone the repository**
    ```bash
+   git clone https://github.com/nollenr/AWS-Terraform-App-Multi-Region.git
    cd AWS-Terraform-App-Multi-Region
    ```
 
@@ -126,7 +127,7 @@ The `cluster_info` variable contains the configuration for each region. You need
 | Variable | Type | Default | Description |
 |----------|------|---------|-------------|
 | `my_ip_address` | string | `"0.0.0.0"` | Your IP address for security group access (SSH, DB, observability) |
-| `crdb_version` | string | `"23.1.10"` | CockroachDB client version |
+| `crdb_version` | string | `"25.4.10"` | CockroachDB client version |
 | `app_instance_type` | string | `"t3a.micro"` | EC2 instance type for app servers |
 
 ### Optional Variables
@@ -135,8 +136,8 @@ The `cluster_info` variable contains the configuration for each region. You need
 |----------|------|---------|-------------|
 | `resource_tags` | map(string) | `{}` | Additional tags for resources |
 | `include_demo` | string | `"no"` | Include demo application (`"yes"` or `"no"`) |
-| `tls_private_key` | string | `""` | TLS private key PEM (auto-generated if blank) |
-| `tls_public_key` | string | `""` | TLS public key PEM (auto-generated if blank) |
+| `tls_private_key` | string | `""` | Leave blank -- used for paswordless ssh between instances |
+| `tls_public_key` | string | `""` | Leave blank -- used for paswordless ssh between instances |
 
 ## File Structure
 
