@@ -46,18 +46,27 @@
     variable "crdb_version" {
       description = "CockroachDB Version"
       type        = string
-      default     = "23.1.10"
+      default     = "26.1.2"
     }
 
 # ----------------------------------------
-# APP Instance Specifications
+# Primary APP Instance Specification
 # ----------------------------------------
-    variable "app_instance_type" {
+    variable "app_instance_type_primary" {
+      description = "App Instance Type"
+      type        = string
+      default     = "t3a.medium"
+    }
+
+# ----------------------------------------
+# Secondary APP Instance Specifications
+# ----------------------------------------
+    variable "app_instance_type_secondary" {
       description = "App Instance Type"
       type        = string
       default     = "t3a.micro"
     }
-    
+
 # ----------------------------------------
 # Regions, CIDR, and other cluster info
 # ----------------------------------------

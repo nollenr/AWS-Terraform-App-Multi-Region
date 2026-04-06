@@ -10,7 +10,7 @@ module "app-region-1" {
   owner                   = var.owner                  # same for all
   project_name            = var.project_name           # same for all
   crdb_version            = var.crdb_version           # same for all
-  app_instance_type       = var.app_instance_type      # same for all
+  app_instance_type       = var.app_instance_type_primary
   include_demo            = var.include_demo           # same for all
 
   cluster_info = {
@@ -47,7 +47,7 @@ module "app-region-2" {
   owner                   = var.owner                  # same for all
   project_name            = var.project_name           # same for all
   crdb_version            = var.crdb_version           # same for all
-  app_instance_type       = var.app_instance_type      # same for all
+  app_instance_type       = var.app_instance_type_secondary      
   include_demo            = var.include_demo           # same for all
 
   cluster_info = {
@@ -84,7 +84,7 @@ module "app-region-0" {
   owner                   = var.owner
   project_name            = var.project_name
   crdb_version            = var.crdb_version
-  app_instance_type       = var.app_instance_type
+  app_instance_type       = var.app_instance_type_secondary
   include_demo            = var.include_demo
 
   cluster_info = {

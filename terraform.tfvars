@@ -3,7 +3,8 @@ environment  = "demo"
 owner        = "nollen"
 my_ip_address = "98.148.51.154"
 crdb_version = "25.2.5"
-app_instance_type = "t3a.micro"
+app_instance_type_primary = "t3a.medium"
+app_instance_type_secondary = "t3a.micro"
 include_demo = "yes"
 
 cluster_info = {
